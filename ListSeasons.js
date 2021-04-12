@@ -86,7 +86,7 @@ class ListSeasons extends React.Component{
                   <td>
                      
                           <Button className="mr-1" variant="info"
-                          onClick={()=> this.setState({editSeasonhow:true, key:season.id})}
+                          onClick={()=> this.setState({editSeasonShow:true, key:season.id})}
                            style = {{width :"75px",borderRadius:"30px"}}>
                              Edit
                           </Button>
