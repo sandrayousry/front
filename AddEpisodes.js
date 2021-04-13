@@ -2,6 +2,7 @@ import React from 'react';
 import {Modal, Button, Row, Col, Form} from  'react-bootstrap';
 
 class AddEpisodes extends React.Component{
+ 
     handelSubmit(event){
         event.preventDefault();
             fetch(`http://hazemmansour.pythonanywhere.com/api/addepisode`,{
@@ -17,6 +18,7 @@ class AddEpisodes extends React.Component{
                 thumbnail_url:event.target.thumbnail_url.value,
                 video_url:event.target.video_url.value,
                 seasons:event.target.seasons.value,
+                
             })
             })
             .then(res=> res.json())
@@ -41,7 +43,7 @@ class AddEpisodes extends React.Component{
             >
             <Modal.Header closeButton>
             <Modal.Title id="contained-model-title-vcenter">
-            Add Movie
+            Add episodes
             </Modal.Title>
              </Modal.Header>
              <Modal.Body>
@@ -52,36 +54,37 @@ class AddEpisodes extends React.Component{
 
                                  
                              <Form.Group controlId="id">
-                                     <Form.Label>Episode id</Form.Label>
+                                     <Form.Label>Episodes id</Form.Label>
                                      <Form.Control type="text" name="id"  placeholder="Id" required />
                                      </Form.Group>
 
                                      <Form.Group controlId="number">
-                                     <Form.Label>number</Form.Label>
-                                     <Form.Control type="text" name="number"  placeholder="number"
+                                     <Form.Label>Number</Form.Label>
+                                     <Form.Control type="text" name="number"  placeholder="Number"
                                       required />
                                      </Form.Group>
 
-                                     <Form.Group controlId="thumbnail_url">
-                                     <Form.Label>Thumbnail url</Form.Label>
-                                     <Form.Control type="text" name="thumbnail_url"  placeholder="Thumbnail url"
-                                      required /> 
-                                     </Form.Group>
+                                    <Form.Group controlId="thumbnail_url">
+                                    <Form.Label>Thumbnail url</Form.Label>
+                                    <Form.Control type="text" name="thumbnail_url"  placeholder="thumbnail_url" required
+                                     />
+                                    </Form.Group>
 
-                                 <Form.Group controlId="video_url">
-                                     <Form.Label>Video url</Form.Label>
-                                     <Form.Control type="text" name="video_url"  placeholder="Video url"
-                                      required/>
-                                     </Form.Group>
+                                    <Form.Group controlId="video_url">
+                                    <Form.Label>Video url</Form.Label>
+                                    <Form.Control type="text" name="video_url"  placeholder="Video url" required
+                                     />
+                                    </Form.Group>
 
-                                     <Form.Group controlId="seasons">
-                                     <Form.Label>Seasons</Form.Label>
-                                     <Form.Control type="text" name="seasons"  placeholder="seasons"
-                                      required />
-                                     
-                                     </Form.Group>
+                                    <Form.Group controlId="seasons">
+                                    <Form.Label>Seasons</Form.Label>
+                                    <Form.Control type="text" name="seasons"  placeholder="seasons" required
+                                     />
+                                    </Form.Group>
+
+
                                  <Form.Group>
-                                     <Button  variant="primary" type="submit" >
+                                     <Button  variant="primary" type="submit"  >
                                          Add 
 
                                      </Button>

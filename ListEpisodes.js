@@ -15,14 +15,22 @@ class ListEpisodes extends React.Component{
     componentDidMount(){
         this.refreshList()
     }
-    refreshList(){  
+    refreshList(){
+        // this.setState({
+        //     // movies:[{"MovieId":1,"Description":"dessss","Releasedate":"7-7-2007","Title":"aaa","Rate":4.5,
+        //     // "Language":"Arabic","Thumbilurl":"ddfdt","Catgory":"dddd","Videourl":"kyuyystrsf"},
+        //     // ]
+        // })
+    
          fetch(`http://hazemmansour.pythonanywhere.com/api/episodelist`,
          {method:"GET",
          ContentType:"application/json"})
          .then(response => response.json())
          .then(data => {
              this.setState({episodes:data});
-             
+            // console.log(data)
+            // console.log(this.state.episodes)
+                
              }
              )
     }
@@ -57,15 +65,15 @@ class ListEpisodes extends React.Component{
         let editEpisodeClose=() =>this.setState({editEpisodeShow:false});
         return(
             <div>
-          <Table className="mt-4" striped bordered  hover  size="sm" responsive="md" variant="dark">
+          <Table className="mt-4" striped  bordered  hover  size="sm" responsive="md" variant="dark">
               <thead>
                   <tr>
-                  <th>MovieId</th>
+                  <th>Episode id</th>
                   <th>Number</th>
-                  <th>Thumbnail url</th>
+                  <th>Thumbil url</th>
                   <th>Video url</th>
-                  <th>Seasons</th>
-                  <th>Option</th>
+                  <th>Seasone</th>
+                  <th>Options</th>
                   </tr>
               </thead>
               <tbody>
@@ -88,7 +96,6 @@ class ListEpisodes extends React.Component{
                   </ButtonToolbar>
                   <ButtonToolbar>
                   <td>
-
                           <Button className="mr-1"
                               onClick={()=>this.Delete(episode.id)} variant="danger" 
                                style = {{width :"75px" ,borderRadius:"30px"}}>
@@ -109,16 +116,17 @@ class ListEpisodes extends React.Component{
     <Button
         variant="primary"
         onClick={() => this.setState({addEpisodeShow:true})}
-       >Add Episode</Button>
+       >Add episode</Button>
        <AddEpisodes show={this.state.addEpisodeShow}
                   onHide={addEpisodeClose}
                   key = {this.state.key}
-                  number = {number}
+                 number = {number}
                   thumbnail_url = {thumbnail_url}
                   video_url = {video_url}
                   seasons = {seasons}
+
                   />
-</ButtonToolbar>              
+</ButtonToolbar>             
 </div>
         )
     }
